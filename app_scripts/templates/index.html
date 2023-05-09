@@ -1,110 +1,43 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <title>Title</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
-    <link href="static/css/style.css" rel="stylesheet">
-</head>
-
-<body>
-  <header>
-    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #E5E19C;">
-        <a class="navbar-brand" href="#"><img src="static/logo.png" class="img-fluid rounded-top" alt="" width=80ex height=80ex> Maria's Cookies</a>
-        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-            aria-expanded="false" aria-label="Toggle navigation"></button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" aria-current="page">Catalogo <span class="visually-hidden">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Populares</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Historial</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Historial (administrador)</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Por cliente</a>
-                        <a class="dropdown-item" href="#">Por producto</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos (administrador)</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Ver lista de productos</a>
-                        <a class="dropdown-item" href="#">Agregar producto</a>
-                        <a class="dropdown-item" href="#">Modificar producto</a>
-                        <a class="dropdown-item" href="#">Eliminar producto</a>
-                    </div>
-                </li>
-            </ul>
-            <button type="button" class="btn btn-primary">Registrarse</button>|
-            <button type="button" class="btn btn-secundary">Iniciar sesion</button>
-        </div>
-    </nav>
-  </header>
-  <main>
+{% extends "base.html" %}
+{% block title %}Maria's Cookies{% endblock %}
+{% block body %}
     <div class="containerPadre text-black">
         <h4>Pedidos</h4><br>
         <div class="container text-black">
             <ul class="lista">
                 <li class="lista-item">
                     <div class="lista-content">
-                        <img src="static/producto" width=200ex height=150ex><br>
-                        <h5>Producto</h5><br>
+                        <img src="static/producto1.jpg" width="200" height="150"><br>
+                        <h5>Producto 1</h5><br>
                         Precio
-                        <a href="#">Mas informacion</a>
+                        <a href="#">Más información</a>
                     </div>
                 </li>
                 <li class="lista-item">
                     <div class="lista-content">
-                        <img src="static/producto" width=200ex height=150ex><br>
-                        <h5>Producto</h5><br>
+                        <img src="static/producto2.jpg" width="200" height="150"><br>
+                        <h5>Producto 2</h5><br>
                         Precio
-                        <a href="#">Mas informacion</a>
+                        <a href="#">Más información</a>
                     </div>
                 </li>
                 <li class="lista-item">
                     <div class="lista-content">
-                        <img src="static/producto" width=200ex height=150ex><br>
-                        <h5>Producto</h5><br>
+                        <img src="static/producto3.jpg" width="200" height="150"><br>
+                        <h5>Producto 3</h5><br>
                         Precio
-                        <a href="#">Mas informacion</a>
+                        <a href="#">Más información</a>
                     </div>
                 </li>
                 <li class="lista-item">
                     <div class="lista-content">
-                        <img src="static/producto" width=200ex height=150ex><br>
-                        <h5>Producto</h5><br>
+                        <img src="static/producto4.jpg" width="200" height="150"><br>
+                        <h5>Producto 4</h5><br>
                         Precio
-                        <a href="#">Mas informacion</a>
+                        <a href="#">Más información</a>
                     </div>
                 </li>
             </ul>
         </div>        
     </div>
-  </main>
-  <footer>
-     Copyright Maria's Cookies © 2023
-  </footer>
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
-</body>
-
-</html>
+{% endblock %}
