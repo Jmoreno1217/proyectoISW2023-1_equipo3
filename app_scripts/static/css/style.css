@@ -1,24 +1,43 @@
-body{
+body.base{
     min-height: 100vh;
     display:flex;
     flex-direction: column;
-    background-color: #D69437;
+    background-color: #D5BDAF;
+}
+body.login{
+    background-color: #D5BDAF;
+}
+.navbar{
+    background-color: #f5ebe0;
+}
+.navbarbtn{
+    padding:1%;
 }
 .btn-primary{
-    background-color: #D69437 !important;
-    border-color: #D69437 !important;
+    background-color: #CDBCAC !important;
+    border-color: #CDBCAC !important;
+    text-decoration: solid;
 }
 .btn-primary:hover {
-    background-color: #af782c !important;
-    border-color: #af782c !important;
+    background-color: #D5BDAF !important;
+    border-color: #D5BDAF!important;
+    text-decoration: solid;
+}
+.btn-secundary{
+    background-color: #FAFAF9 !important;
+    border-color: #FAFAF9 !important;
+}
+.btn-secundary:hover {
+    background-color: #DEDED6 !important;
+    border-color: #DEDED6!important;
 }
 .containerPadre {
-    background-color:#DECF7E;
+    background-color:#E3D5CA;
     padding:2ex;
     margin-top: 3ex !important;
     margin-bottom: 3ex !important;
-    margin-left:10ex !important;
-    margin-right:10ex !important;
+    margin-left:4% !important;
+    margin-right:4% !important;
     border-radius: .5em;
     overflow-x: auto;
 }
@@ -52,16 +71,46 @@ body{
 .lista-content {
     display: flex;
     flex-direction: column;
-    background-color: #ecdd86;
+    background-color: #EDEDE9;
     padding: 1em;
     width: 100%;
     border-radius: .5em;
  }
-
+.lista-content > a{
+    text-decoration: none;
+    color:#000;
+}
+.lista-content > a:hover{
+    text-decoration: none;
+    color:#D5BDAF;
+}
 footer{
     text-align: center;
     padding-top: 5ex;
     padding-bottom:5ex;
-    background-color: #dfc463;
+    background-color: #D6CCC2;
     margin-top: auto;
+}
+
+.loginForm{
+    background-color: #EDEDE9;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+}
+.loginForm > input{
+    width: 30em;
+}
+.loginForm > p > a{
+    text-decoration: none;
+    color:#000;
+}
+.loginForm > p > a:hover{
+    text-decoration: none;
+    color:#D5BDAF;
 }
