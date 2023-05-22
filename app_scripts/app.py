@@ -12,7 +12,14 @@ def handle_context():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    busqueda=ejecutarBusqueda(f'SELECT producto_id,producto_nombre, producto_precio FROM producto;')
+    c = 4
+    arreglo=[]
+    for resultado in busqueda:
+        if c==0: break
+        arreglo.append(resultado)
+        c-=1
+    return render_template("index.html",resultados=arreglo)
 
 @app.route("/iniciar_sesion")
 def login():
@@ -57,6 +64,11 @@ def validarr():
     insertarBorrarActualizar(f'INSERT INTO cuenta VALUES ({id},\'{usuario}\',\'{contrasenia}\',{tipo});')
     return redirect(url_for('login'))
 
+@app.route("/catalogo")
+def catalogo():
+    busqueda=ejecutarBusqueda(f'SELECT producto_id,producto_nombre, producto_precio FROM producto;')
+    return render_template("catalogo.html",resultados=busqueda)
+
 @app.route("/cerrar_sesion")
 def logout():
     if 'id' in session:
@@ -71,7 +83,28 @@ def generar_id_usuario():
         x=datetime.datetime.now()
         idbase = x.strftime("%y")+x.strftime("%m") + x.strftime("%d")+""
         idbase2 = x.strftime("%y")+x.strftime("%m") + x.strftime("%d")+"000"
-        busqueda=ejecutarBusqueda(f'SELECT cliente_id FROM cuenta WHERE cliente_id LIKE \'{idbase}%\';')
+        busqueda=ejecutarBusqueda(f'SELECT cuenta.cliente_id FROM cuenta WHERE cuenta.cliente_id LIKE \'{idbase}%\';')
+        print(busqueda)
+        n=0
+        if busqueda:
+            print(busqueda)
+            for usuario in busqueda:
+                temp = str(usuario['cliente_id'])[0:len(idbase2)-3]
+                temp2=idbase
+                if temp == temp2:
+                    n+=1
+            n+=1
+            n = str(n)
+            id= idbase2[0:len(idbase2)-len(n)]+n
+        else:
+            id = x.strftime("%y")+x.strftime("%m") + x.strftime("%d")+"001"
+            ##id=1
+        return(id)
+'''def generar_id_producto():
+        x=datetime.datetime.now()
+        idbase = x.strftime("%y")+x.strftime("%m") + x.strftime("%d")+""
+        idbase2 = x.strftime("%y")+x.strftime("%m") + x.strftime("%d")+"000"
+        busqueda=ejecutarBusqueda(f'SELECT producto_id FROM producto WHERE producto_id LIKE \'{idbase}%\';')
         n=0
         if busqueda:
             for usuario in busqueda:
@@ -83,8 +116,9 @@ def generar_id_usuario():
             n = str(n)
             id= idbase2[0:len(idbase2)-len(n)]+n
         else:
-            id = x.strftime("%y")+x.strftime("%m") + x.strftime("%d")+"001"
-        return(id)
+            ##id = x.strftime("%y")+x.strftime("%m") + x.strftime("%d")+"001"
+            id=1
+        return(id)'''
 
 if __name__ == "__main__":
     print(generar_id_usuario())

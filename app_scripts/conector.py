@@ -24,7 +24,7 @@ def ejecutarComando(conexion, comando):
         cursor=conexion.cursor(buffered=True,dictionary=True)
         cursor.execute(comando)
         conexion.commit()
-        if comando[0:5] == 'SELECT':
+        if comando[0:6] == 'SELECT':
             filas=cursor.fetchall()
             return filas
         """for fila in filas:

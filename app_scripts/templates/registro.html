@@ -69,22 +69,27 @@
                 else{
                     document.getElementById('mensaje').innerHTML=`Hay ${arreglov.length} campos requeridos (*) vacios.<br>Por favor, rellene la informacion solicitada.`;
                 }
-                return 0;
+                return true;
+            }else{
+            return false;
             }
-            return 1;
         }
         function verificarContrasenias(){
             if(document.getElementById('pass').value!==document.getElementById('pass2').value){
-                document.getElementById('mensaje').insertAdjacentHTML("beforeend",'<br>Las contraseñas no son las mismas, vuelva a intentarlo.')
-                return 0;
+                document.getElementById('mensaje').insertAdjacentHTML("beforeend",'<br>Las contraseñas no son las mismas, vuelva a intentarlo.');
+                return true;
             }
-            else{
-                return 1;
+            if(document.getElementById('pass').value.includes('/')==true){
+                document.getElementById('mensaje').insertAdjacentHTML("beforeend",'<br>Por favor, no utilize el simbolo "/".');
+                return true;
             }
+            
+                return false;
+            
         }
         function registrar(){
             document.getElementById('mensaje').innerHTML="";
-            if (verificarCamposImportantes()===1&&verificarContrasenias===1){
+            if (verificarCamposImportantes()===true||verificarContrasenias()===true){
                 
             }
             else{

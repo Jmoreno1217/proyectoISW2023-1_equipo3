@@ -4,40 +4,14 @@
     <div class="containerPadre text-black">
         <h4>Productos populares</h4><br>
         <div class="container text-black">
-            <ul class="lista">
-                <li class="lista-item">
-                    <div class="lista-content">
-                        <img src="static/producto1.jpg" width="200" height="150"><br>
-                        <h5>Producto 1</h5><br>
-                        Precio
-                        <a href="#">Más información</a>
-                    </div>
-                </li>
-                <li class="lista-item">
-                    <div class="lista-content">
-                        <img src="static/producto2.jpg" width="200" height="150"><br>
-                        <h5>Producto 2</h5><br>
-                        Precio
-                        <a href="#">Más información</a>
-                    </div>
-                </li>
-                <li class="lista-item">
-                    <div class="lista-content">
-                        <img src="static/producto3.jpg" width="200" height="150"><br>
-                        <h5>Producto 3</h5><br>
-                        Precio
-                        <a href="#">Más información</a>
-                    </div>
-                </li>
-                <li class="lista-item">
-                    <div class="lista-content">
-                        <img src="static/producto4.jpg" width="200" height="150"><br>
-                        <h5>Producto 4</h5><br>
-                        Precio
-                        <a href="#">Más información</a>
-                    </div>
-                </li>
-            </ul>
+            {% for fila in resultados %}
+            <div class="lista-content">
+                <img src="static/producto1.jpg"><br>
+                <h5>{{ fila['producto_nombre'] }}</h5><br>
+                {{ fila['producto_precio'] }}
+                <a href="#">Más información</a>
+            </div>
+            {% endfor %}
         </div>        
     </div>
 {% endblock %}

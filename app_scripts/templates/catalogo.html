@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Maria's Cookies - catalogo{% endblock %}
+{% block body %}
+    <div class="containerPadre text-black">
+        <h4>Catalogo</h4><br>
+        <div class="container text-black">
+                {% for fila in resultados %}
+                    <div class="lista-content">
+                        <img src="static/producto1.jpg" width="200" height="150"><br>
+                        <h5>{{ fila['producto_nombre'] }}</h5><br>
+                        {{ fila['producto_precio'] }}
+                        <a href="#">Más información</a>
+                    </div>
+                {% endfor %}
+        </div>        
+    </div>
+{% endblock %}

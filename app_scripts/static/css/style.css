@@ -39,18 +39,19 @@ body.login{
     margin-left:4% !important;
     margin-right:4% !important;
     border-radius: .5em;
+    overflow-block: auto;
     overflow-x: auto;
 }
 .containerPadre > h4{
-    position:fixed;
+    position:relative;
 }
 .container{
-    display: flex;
-    padding:0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px,1fr));
+    grid-gap:10px;
 }
 .lista{
     display:flex;
-    flex:wrap;
     list-style-type: none;
 }
 @media all and (min-width: 40em) {
@@ -65,12 +66,16 @@ body.login{
   }
 .lista-item{
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding:.5em;
     width: 100%;
 }
 .lista-content {
     display: flex;
+    flex: 1;
     flex-direction: column;
+    justify-content: space-around;
     background-color: #EDEDE9;
     padding: 1em;
     width: 100%;
@@ -83,6 +88,11 @@ body.login{
 .lista-content > a:hover{
     text-decoration: none;
     color:#D5BDAF;
+}
+.lista-content > img{
+    object-fit: cover;
+    margin-right: auto;
+    margin-left: auto;
 }
 footer{
     text-align: center;
