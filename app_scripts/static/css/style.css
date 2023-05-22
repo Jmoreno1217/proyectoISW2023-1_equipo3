@@ -112,6 +112,9 @@ footer{
     text-decoration: none;
     color:#000;
 }
+.loginForm > form{
+    width: 30em;
+}
 .loginForm > p > a:hover{
     text-decoration: none;
     color:#D5BDAF;

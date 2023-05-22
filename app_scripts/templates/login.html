@@ -13,19 +13,22 @@
     <link href="static/css/style.css" rel="stylesheet">
 </head>
 
-<body class="login">
+<body class="login" onload="ucIncorrecto()">
     <main>
         <div class="card loginForm">
             <h4 class="card-title">Iniciar sesion</h4>
-            <form action="POST"></form>
+            <form action="POST">
                 <label for="" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="" value="" required>
+                <input type="text" class="form-control" id="user" value="" required>
                 <label for="" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" name="" id="" placeholder="">
+                <input type="password" class="form-control" name="" id="pass" placeholder="">
+                <label class="form-label" id="mensaje"></label>
                 <hr>
-                <a name="" id="" class="btn btn-primary" href="#" role="button">Iniciar Sesion</a>
+                <button type="button" class="btn btn-primary" onclick="login()">Iniciar sesion</button>
                 <br>
-                <p>No tienes una cuenta? <a href="">Registrarme ahora</a></p>
+            </form>
+            <p>No tienes una cuenta? <a href="/registrarse">Registrarme ahora</a></p>
+            
         </div>
     </main>
     <!-- Bootstrap JavaScript Libraries -->
@@ -35,6 +38,25 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+    <script>
+        function login(){
+            var usuario = document.getElementById('user').value;
+            var contrasenia = document.getElementById('pass').value;
+            if (usuario==="" || contrasenia===""){
+                document.getElementById('mensaje').innerHTML="Los campos deben de ser llenados para continuar.";
+            }
+            else{
+                window.location.href = `/validarl?user=${usuario}&pass=${contrasenia}`;
+            }
+        }
+        function ucIncorrecto(){
+            if (window.location.href.indexOf('contraseniaincorrrecta=1') > -1){
+                window.history.replaceState({},null,'/iniciar_sesion');
+                document.getElementById('mensaje').innerHTML="Usuario y contraseña incorrectos.<br> Intente de nuevo.";
+            }
+            else{document.getElementById('mensaje').innerHTML="";}
+        }
     </script>
 </body>
 

@@ -27,14 +27,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Historial</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    {% if 'cuenta_administrador' in session and session['cuenta_administrador'] == 1%}<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Historial (administrador)</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
                             <a class="dropdown-item" href="#">Por cliente</a>
                             <a class="dropdown-item" href="#">Por producto</a>
                         </div>
-                    </li>
-                    <li class="nav-item dropdown">
+                    </li>{% endif %}
+                    {% if 'cuenta_administrador' in session and session['cuenta_administrador'] == 1%}<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos (administrador)</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
                             <a class="dropdown-item" href="#">Ver lista de productos</a>
@@ -42,17 +42,18 @@
                             <a class="dropdown-item" href="#">Modificar producto</a>
                             <a class="dropdown-item" href="#">Eliminar producto</a>
                         </div>
-                    </li>
+                    </li>{% endif %}
                 </ul>
                 <div class="navbarbtn">
-                    <button type="button" class="btn btn-primary">Registrarse</button>|
-                    <button type="button" class="btn btn-secundary">Iniciar sesion</button>
+                    {% if 'nombre' in session %}
+                        Bienvenid@ {{ session['nombre'] }} <button type="button" class="btn btn-secundary" onclick="cambioBTN('/cerrar_sesion')">Cerrar sesion</button>
+                    {% else %}
+                        <button type="button" class="btn btn-primary" onclick="cambioBTN('/registrarse')">Registrarse</button>|
+                        <button type="button" class="btn btn-secundary" onclick="cambioBTN('/iniciar_sesion')">Iniciar sesion</button>
+                    {% endif %}
                 </div>
             </div>
         </nav>
-        {% if 'nombre' in session %}
-            <div>Bienvenid@ {{ session['nombre'] }}</div>
-            {% endif %}
         {% block body %}
         {% endblock %}
         <footer>
@@ -65,9 +66,13 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
             integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
         </script>
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
             integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+        <script>
+            function cambioBTN(url){
+                window.location.href = url;
+            }
         </script>
 </body>  
   
