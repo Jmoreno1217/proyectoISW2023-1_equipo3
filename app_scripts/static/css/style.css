@@ -93,6 +93,8 @@ body.login{
     object-fit: cover;
     margin-right: auto;
     margin-left: auto;
+    width:200px;
+    height:150px;
 }
 footer{
     text-align: center;
